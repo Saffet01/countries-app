@@ -1,0 +1,35 @@
+.country{
+    background-color: white;
+    width: 305px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2) ;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 370px;
+}
+
+.darkMode.country{
+    background-color: var(--dark-Blue);
+}
+
+.flag{
+    height: 170px;
+    width: 100%;
+}
+
+.flagImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details{
+    margin-left: 20px;
+}
+
+.darkMode.details{
+    color: beige;
+}
+
+.value{
+    color: gray;
+}

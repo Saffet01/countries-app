@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+:root {
+  --dark-Blue: hsl(209, 23%, 22%); /*dark mode elements */
+  --Very-Dark-Blue: hsl(207, 26%, 17%); /*dark mode background */
+  --Very-Dark-Blue-Light-Mode-Text: hsl(200, 15%, 8%); /*(Light Mode Text)*/
+  --Dark-Gray: hsl(0, 0%, 52%); /*(Light Mode Input)*/
+  --Very-Light-Gray: hsl(0, 0%, 98%); /*(Light Mode Background)*/
+  --White: hsl(0, 0%, 100%); /*(Dark Mode Text & Light Mode Elements)*/
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700&display=swap');
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.App{
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--Very-Light-Gray);
   min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+.darkMode.App{
+  background-color: var(--Very-Dark-Blue);
+}
+
+.header{
+  /* background-color: var(--White); */
+  background-color: var(--White);
+}
+
+.logo{
+  font-weight: 700;
+}
+
+.countries{
+  max-width: 1200px;
+  padding: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  align-items: center;
 }

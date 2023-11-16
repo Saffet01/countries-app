@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./header/Header";
+import Inputs from "./input/Inputs";
+import Country from "./country/Country";
+import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  const onClick = () => {
+    setDarkMode(state => !state);
+  }
+//{`${darkMode ? 'darkMode header' : 'header'}`}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${darkMode ? 'darkMode App' : 'App'}`}>
+      <Header onClick={onClick} darkMode={darkMode} />
+      <Inputs darkMode={darkMode} />
+
+      <div className="countries">
+        <Country darkMode={darkMode} />
+      </div>
     </div>
   );
 }
