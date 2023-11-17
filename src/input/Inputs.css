@@ -53,3 +53,6 @@
     outline: none;
 }
 
+.darkMode.selectInput{
+    color: beige;
+}
