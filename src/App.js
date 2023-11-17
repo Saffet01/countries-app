@@ -41,7 +41,7 @@ function App() {
                 key={country.cca3}
                 darkMode={darkMode}
                 flag={country.flags.png}
-                countryName={country.name.official}
+                countryName={country.name.common}
                 population={country.population}
                 capitalCity={country.capital}
                 region={country.region}
