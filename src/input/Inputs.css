@@ -26,8 +26,11 @@
     border: none;
     width: 300px;
     background-color: transparent;
-    color: beige;
     outline: none;
+}
+
+.darkMode.searchInput{
+    color: beige;
 }
 
 .selectInputSection{

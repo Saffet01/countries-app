@@ -25,16 +25,23 @@ function App() {
     setCountries(data);
   };
 
-  console.log("countries: ", countries);
+  //console.log("countries: ", countries);
+
+  const noCountriesFound = countries.message;
 
   return (
     <div className={`${darkMode ? "darkMode App" : "App"}`}>
       <Header onClick={onClick} darkMode={darkMode} />
-      <Inputs darkMode={darkMode} searchCountryRef={searchCountryRef} selectRegionRef={selectRegionRef} countries={countries} setCountries={setCountries} />
+      <Inputs
+        darkMode={darkMode}
+        searchCountryRef={searchCountryRef}
+        selectRegionRef={selectRegionRef}
+        countries={countries}
+        setCountries={setCountries}
+      />
 
       <div className="countries">
-        {
-          /* <Country darkMode={darkMode} /> */
+        {!noCountriesFound ? (
           countries.map((country) => {
             return (
               <Country
@@ -48,7 +55,9 @@ function App() {
               />
             );
           })
-        }
+        ) : (
+          <p className={`${darkMode ? "darkMode noCountryFoundText" : "noCountryFoundText"}`}>No country found</p>
+        )}
       </div>
     </div>
   );

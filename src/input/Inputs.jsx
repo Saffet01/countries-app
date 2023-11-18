@@ -1,57 +1,70 @@
-import { useState} from 'react';
+import { useState } from "react";
 import "./Inputs.css";
 import SearchIcon from "@mui/icons-material/Search";
 
-
 const Inputs = (props) => {
-
-  const {darkMode, searchCountryRef, selectRegionRef, countries, setCountries} = props;
-  const [textInputValue, setTextInputValue] = useState('');
-  const [selectInputValue, setSelectInputValue] = useState('');
+  const { darkMode, countries, setCountries } = props;
+  const [textInputValue, setTextInputValue] = useState("");
+  const [selectInputValue, setSelectInputValue] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // add selectInputValue as needed
+
     const searchValue = textInputValue.trim();
-    if(searchValue){
-      const response = await fetch(`https://restcountries.com/v3.1/name/${searchValue}`);
+    const selectValue = selectInputValue.trim();
+
+    if (searchValue) {
+      const response = await fetch(
+        `https://restcountries.com/v3.1/name/${searchValue}`
+      );
       const data = await response.json();
       setCountries(data);
+    } else if (selectValue) {
+      const res = await fetch(
+        `https://restcountries.com/v3.1/region/${selectValue}`
+      );
+      const datas = await res.json();
+      setCountries(datas);
     }
-  }
+  };
 
   return (
     <form className="inputs" onSubmit={handleSubmit}>
-      <div className={`${darkMode ? 'darkMode searchInputSection' : 'searchInputSection'}`}>
+      <div
+        className={`${
+          darkMode ? "darkMode searchInputSection" : "searchInputSection"
+        }`}
+      >
         <SearchIcon />
         <input
-          className="searchInput input"
+          className={`${darkMode ? "darkMode searchInput" : "searchInput"}`}
           type="text"
           placeholder="Search for a country..."
-          // ref={searchCountryRef}
           value={textInputValue}
           onChange={(event) => setTextInputValue(event.target.value)}
         />
       </div>
 
-      <div className={`${darkMode ? 'darkMode selectInputSection' : 'selectInputSection'}`}>
+      <div
+        className={`${
+          darkMode ? "darkMode selectInputSection" : "selectInputSection"
+        }`}
+      >
         <select
-          className={`${darkMode ? 'darkMode selectInput' : 'selectInput'}`}
+          className={`${darkMode ? "darkMode selectInput" : "selectInput"}`}
           name=""
           id=""
           value={selectInputValue}
-          onChange={(event) => setSelectInputValue(event.target.value)}
-          // ref={selectRegionRef}
+          onChange={(event) => {setSelectInputValue(event.target.value)}}
         >
-          <option value="" disabled>
+          <option value="" disabled selected>
             Filter by Region
           </option>
-          <option className={`${darkMode ? 'darkMode option' : 'option'}`}>All</option>
-          <option value="">Africa</option>
-          <option value="">America</option>
-          <option value="">Asia</option>
-          <option value="">Europe</option>
-          <option value="">Ocenia</option>
+          <option value="All">All</option>
+          <option value="Africa">Africa</option>
+          <option value="America">America</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
         </select>
       </div>
     </form>

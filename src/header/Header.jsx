@@ -3,7 +3,6 @@ import  "./Header.css"
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 const Header = (props) => {
-  console.log(props);
 
   const {onClick, darkMode} = props;
 
