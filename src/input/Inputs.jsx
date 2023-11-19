@@ -56,6 +56,7 @@ const Inputs = (props) => {
           id=""
           value={selectInputValue}
           onChange={(event) => {setSelectInputValue(event.target.value)}}
+          //onChange={handleSubmit} it turns unselectable?
         >
           <option value="" disabled selected>
             Filter by Region
