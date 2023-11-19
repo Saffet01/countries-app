@@ -28,6 +28,17 @@ const Inputs = (props) => {
     }
   };
 
+  const handleSelectChange = async (event) => {
+    const value = event.target.value;
+    if (!value) return;
+    setSelectInputValue(value);
+    const res = await fetch(
+      `https://restcountries.com/v3.1/region/${value}`
+    );
+    const data = await res.json();
+    setCountries(data);
+  }
+
   return (
     <form className="inputs" onSubmit={handleSubmit}>
       <div
@@ -55,10 +66,10 @@ const Inputs = (props) => {
           name=""
           id=""
           value={selectInputValue}
-          onChange={(event) => {setSelectInputValue(event.target.value)}}
+          onChange={handleSelectChange}
           //onChange={handleSubmit} it turns unselectable?
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Filter by Region
           </option>
           <option value="All">All</option>
