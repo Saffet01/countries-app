@@ -19,12 +19,16 @@ const Inputs = (props) => {
       );
       const data = await response.json();
       setCountries(data);
-    } else if (selectValue) {
+    } else if (selectValue && selectValue !== "All") {
       const res = await fetch(
         `https://restcountries.com/v3.1/region/${selectValue}`
       );
       const datas = await res.json();
       setCountries(datas);
+    } else{
+      const resp = await fetch("https://restcountries.com/v3.1/all"); // it returns 404 
+      const result = await resp.json();
+      setCountries(result);
     }
   };
 
@@ -67,7 +71,6 @@ const Inputs = (props) => {
           id=""
           value={selectInputValue}
           onChange={handleSelectChange}
-          //onChange={handleSubmit} it turns unselectable?
         >
           <option value="" disabled>
             Filter by Region
