@@ -30,6 +30,8 @@ const Inputs = (props) => {
       const result = await resp.json();
       setCountries(result);
     }
+    setTextInputValue("");
+    setSelectInputValue("");
   };
 
   const handleSelectChange = async (event) => {
