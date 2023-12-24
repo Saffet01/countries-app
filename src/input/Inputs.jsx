@@ -3,7 +3,7 @@ import "./Inputs.css";
 import SearchIcon from "@mui/icons-material/Search";
 
 const Inputs = (props) => {
-  const { darkMode, countries, setCountries } = props;
+  const { darkMode, setCountries } = props;
   const [textInputValue, setTextInputValue] = useState("");
   const [selectInputValue, setSelectInputValue] = useState("");
 
