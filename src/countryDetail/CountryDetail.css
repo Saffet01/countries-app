@@ -1,0 +1,95 @@
+.countryDetail{
+    border: 1px solid red;
+    padding: 50px;
+    height: 100vh;
+}
+
+.backBtn{
+    height: 40px;
+    width: 120px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(129, 129, 129, 0.75);
+    background: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.backBtn:hover{
+    cursor: pointer;
+    scale: 1.05;
+}
+
+.backBtn:active{
+    scale: 0.95;
+}
+
+.content{
+    border: 1px solid blue;
+    margin-top: 70px;
+    display: flex;
+}
+
+.contentFlag{
+    width: 100%;
+    min-width: 500px;
+    height: 100%;
+}
+
+img{
+    width: 95%;
+    height: 420px;
+}
+
+.contentText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 14px;
+    border: 1px solid blueviolet;
+    width: 100%;
+}
+
+.firstColumn{
+    border: 1px solid green;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.secondColumn{
+    border: 1px solid pink;
+}
+
+h2{
+    font-size: 30px;
+}
+
+span{
+    font-weight: bold;
+    
+}
+
+li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.borderCountriesContent{
+    display: flex;
+    gap: 5px;
+    margin-top: 70px;
+}
+
+.borderCountryBtn{
+    border: 1px solid transparent;
+    border-radius: 8px;
+    width: 80px;
+    box-shadow: 0px 0px 10px 0px rgba(129, 129, 129, 0.75);
+    background: none;
+    font-weight: bold;
+}
